@@ -38,6 +38,7 @@ if uploaded_file is not None:
     q6b = st.sidebar.checkbox("Q6-B: Sort the entire data wrt No. of Recovered cases in descending order")
     q7 = st.sidebar.checkbox("Q7: Check if the patient is likely to have COVID-19 based on symptoms") 
     q8 = st.sidebar.checkbox("Q7: What is the average number of confirmed cases per day in each region?")
+    q9 = st.sidebar.checkbox("Q7: Which countries have a death rate of over 10%?")
 
 
     # Question 1
@@ -104,4 +105,10 @@ if uploaded_file is not None:
        data_grouped = data.groupby(['Region', 'Day']).sum().reset_index()
        avg_confirmed_cases = data_grouped.groupby('Region')['Confirmed'].mean()
        st.write(avg_confirmed_cases)
+    # Question 9
+    if q9:
+       st.subheader("Q7: Which countries have a death rate of over 10%?")
+       data['Death Rate'] = (data['Deaths'] / data['Confirmed']) * 100
+       high_death_rate = data[data['Death Rate'] > 10]['Country/Region']
+       st.write(high_death_rate.unique())
 
