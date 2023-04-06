@@ -36,6 +36,8 @@ if uploaded_file is not None:
     q5 = st.sidebar.checkbox("Q5: How many Confirmed, Deaths & Recovered cases were reported from India till 29 April 2020?")
     q6a = st.sidebar.checkbox("Q6-A: Sort the entire data wrt No. of Confirmed cases in ascending order")
     q6b = st.sidebar.checkbox("Q6-B: Sort the entire data wrt No. of Recovered cases in descending order")
+    q7 = st.sidebar.checkbox("Q7: Check if the patient is likely to have COVID-19 based on symptoms") 
+       
 
     # Question 1
     if q1:
@@ -75,3 +77,22 @@ if uploaded_file is not None:
     if q6b:
         st.subheader("Q6-B: Sort the entire data wrt No. of Recovered cases in descending order")
         st.write(data.sort_values(by=['Recovered'], ascending=False))
+    
+    # Question 7
+    if q7
+       st.subheader("Q7: Check if the patient is likely to have COVID-19 based on symptoms")
+       # Create checkboxes for symptoms
+       fever = st.checkbox("Fever")
+       cough = st.checkbox("Dry Cough")
+       tiredness = st.checkbox("Tiredness")
+       breathing_difficulty = st.checkbox("Difficulty in Breathing")
+       sore_throat = st.checkbox("Sore Throat")
+       body_aches = st.checkbox("Body Aches")
+       loss_of_smell_or_taste = st.checkbox("Loss of Smell or Taste")
+    
+       # Check if any of the symptoms are present
+       if fever or cough or tiredness or breathing_difficulty or sore_throat or body_aches or loss_of_smell_or_taste:
+          st.write("Based on the symptoms, the patient may have COVID-19.")
+       else:
+          st.write("Based on the symptoms, the patient is unlikely to have COVID-19.")
+
