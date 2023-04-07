@@ -174,7 +174,7 @@ if uploaded_file is not None:
            grouped_data = data.groupby('Date')[['Confirmed', 'Deaths', 'Recovered']].sum()
     
             # Plot the data
-            plt.figure(figsize=(12, 8))
+            plt.figure(figsize=(12,8))
             sns.lineplot(data=grouped_data)
             plt.xlabel('Date')
             plt.ylabel('Number of Cases')
