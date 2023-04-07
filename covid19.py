@@ -89,12 +89,12 @@ if uploaded_file is not None:
 
     # Question 8
 
-   # if st.checkbox("Q8: What is the average number of confirmed cases per day in each region?"):
-    #      data['Date'] = pd.to_datetime(data['Date'])
-     #     data_grouped = data.groupby(['Region'].sum())
-      #    avg_confirmed_cases = data_grouped.groupby('Region')['Confirmed'].mean()
-       #   st.write(avg_confirmed_cases)
-
+    if st.checkbox("Q8: Which country has the highest number of confirmed cases per million population?"):
+           # Calculate confirmed cases per million population
+           data['Confirmed_per_Million'] = data['Confirmed'] / (data['Population'] / 1000000)
+           # Group data by country and sort by confirmed cases per million population
+           confirmed_by_region = data.groupby('Region')['Confirmed_per_Million'].max().sort_values(ascending=False)
+           st.write(confirmed_by_Region.head(1))
         
     # Question 9  
     
@@ -114,81 +114,3 @@ if uploaded_file is not None:
 
         
     
-    # Question 1
-   # if q1:
-    #   st.subheader("Q1: Show the number of Confirmed, Deaths, and Recovered cases in each Region")
-     #  st.write(data.groupby('Region')['Confirmed', 'Deaths', 'Recovered'].sum())
-
-    # Question 2
-    #if q2:
-     #   st.subheader("Q2: Remove all the records where Confirmed Cases is Less Than 10")
-      #  data = data[~(data.Confirmed < 10)]
-       # st.write(data)
-
-    # Question 3
-    #if q3:
-     #   st.subheader("Q3: In which Region, maximum number of Confirmed cases were recorded?")
-      #  st.write(data.groupby('Region')['Confirmed'].sum().sort_values(ascending=False).head(1))
-
-    # Question 4
-    #if q4:
-     #   st.subheader("Q4: In which Region, minimum number of Deaths cases were recorded?")
-      #  st.write(data.groupby('Region')['Deaths'].sum().sort_values().head(1))
-#
-    # Question 5
- #   if q5:
-  #    st.subheader("Q5: How many Confirmed, Deaths & Recovered cases were reported from India till 29 April 2020?")
-   #     india_data = data[data['Region'] == 'India']
-    #    st.write("Confirmed cases:", india_data['Confirmed'].sum())
-   #     st.write("Deaths:", india_data['Deaths'].sum())
-    #    st.write("Recovered:", india_data['Recovered'].sum())
-
-    # Question 6-A
-   # if q6a:
-    #    st.subheader("Q6-A: Sort the entire data wrt No. of Confirmed cases in ascending order")
-     #   st.write(data.sort_values(by=['Confirmed'], ascending=True))
-
-    # Question 6-B
-   # if q6b:
-    #    st.subheader("Q6-B: Sort the entire data wrt No. of Recovered cases in descending order")
-     #   st.write(data.sort_values(by=['Recovered'], ascending=False))
-    #
-    # Question 7
-    #if q7:
-     #  st.subheader("Q7: Check if the patient is likely to have COVID-19 based on symptoms")
-      # # Create checkboxes for symptoms
-       #fever = st.checkbox("Fever")
-    #   cough = st.checkbox("Dry Cough")
-     #  ti3redness = st.checkbox("Tiredness")
-      # breathing_difficulty = st.checkbox("Difficulty in Breathing")
-       #sore_throat = st.checkbox("Sore Throat")
-      # body_aches = st.checkbox("Body Aches")
-       #loss_of_smell_or_taste = st.checkbox("Loss of Smell or Taste")
-    
-       # Check if any of the symptoms are present
-       #if fever or cough or tiredness or breathing_difficulty or sore_throat or body_aches or loss_of_smell_or_taste:
-        #  st.write("Based on the symptoms, the patient may have COVID-19.")
-       #else:
-        #  st.write("Based on the symptoms, the patient is unlikely to have COVID-19.")
-    #question 8
-  #  if q8:
-   #    st.subheader("Q8: What is the average number of confirmed cases per day in each region?")
-    #   data['Date'] = pd.to_datetime(data['Date'])
-     #  #data['Day'] = data['Date'].dt.date
-      # data_grouped = data.groupby(['Region'].sum().reset_index())
-  #     avg_confirmed_cases = data_grouped.groupby('Region')['Confirmed'].mean()
-   #    st.write(avg_confirmed_cases)
-    # Question 9
-    #if q9:
-     # st.subheader("Q9: Which Region have a death rate of over 10%?")
-      #data['Death Rate'] = (data['Deaths'] / data['Confirmed']) * 100
-     #  high_death_rate = data[data['Death Rate'] > 10]['Region']
-      # st.write(high_death_rate.unique())
-    # Question 10
-    #if q10:
-     #  st.subheader("Q10: Which Region have the highest mortality rates (number of deaths / number of confirmed cases)?")
-       # Calculate mortality rate
-      # data['Mortality_Rate'] = data['Deaths'] / data['Confirmed']
-       # Group data by country and sort by mortality rate
-     #  mortality_by_Region = data.groupby('Region')['Mortality_Rate'].max().sort_values(ascending=False)
-      # st.write(mortality_by_Region)
