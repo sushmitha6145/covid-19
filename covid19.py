@@ -101,8 +101,8 @@ if uploaded_file is not None:
     if q8:
        st.subheader("Q8: What is the average number of confirmed cases per day in each region?")
        data['Date'] = pd.to_datetime(data['Date'])
-       data['Day'] = data['Date'].dt.date
-       data_grouped = data.groupby(['Region', 'Day']).sum()
+       #data['Day'] = data['Date'].dt.date
+       data_grouped = data.groupby(['Region']).sum().reset_index()
        avg_confirmed_cases = data_grouped.groupby('Region')['Confirmed'].mean()
        st.write(avg_confirmed_cases)
     # Question 9
