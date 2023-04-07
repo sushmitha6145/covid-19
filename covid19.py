@@ -33,8 +33,7 @@ if uploaded_file is not None:
     # Question 1
     
     if st.checkbox("Q1: Show the number of Confirmed, Deaths, and Recovered cases in each Region"):
-          st.write(data.groupby('Region')[['Confirmed'].sum(),['Deaths'].sum(), ['Recovered'].sum()])
-        
+           st.write(data.groupby('Region')['Confirmed', 'Deaths', 'Recovered'].sum())
     # Question 2
     
     if st.checkbox("Q2: Remove all the records where Confirmed Cases is Less Than 10"):
