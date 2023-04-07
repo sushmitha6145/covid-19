@@ -163,20 +163,20 @@ if uploaded_file is not None:
      # Question 15
      if st.checkbox("Q11: How does the number of confirmed cases and deaths change over time in a specific region?"):
            # Get list of available regions
-           regions = data['Region'].unique().tolist()
+           Regions = data['Region'].unique().tolist()
            # Select region from dropdown
-           selected_region = st.selectbox("Select a region", regions)
+           selected_Region = st.selectbox("Select a Region", Regions)
            # Filter data for selected region
-           region_data = data[data['Region'] == selected_region]
+           Region_data = data[data['Region'] == selected_Region]
            # Group data by date
-           region_data = region_data.groupby('Date')[['Confirmed', 'Deaths']].sum()
+           Region_data = Region_data.groupby('Date')[['Confirmed', 'Deaths']].sum()
            # Plot data
            fig, ax = plt.subplots(figsize=(10,5))
-           ax.plot(region_data.index, region_data['Confirmed'], label='Confirmed Cases')
-           ax.plot(region_data.index, region_data['Deaths'], label='Deaths')
+           ax.plot(Region_data.index, Region_data['Confirmed'], label='Confirmed Cases')
+           ax.plot(Region_data.index, Region_data['Deaths'], label='Deaths')
            ax.set_xlabel('Date')
            ax.set_ylabel('Number of Cases')
-           ax.set_title(f'COVID-19 Cases in {selected_region}')
+           ax.set_title(f'COVID-19 Cases in {selected_Region}')
            ax.legend()
            st.pyplot(fig)
 
