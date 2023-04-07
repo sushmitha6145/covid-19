@@ -38,7 +38,7 @@ if uploaded_file is not None:
     q7 = st.checkbox("Q7: Check if the patient is likely to have COVID-19 based on symptoms") 
     q8 = st.checkbox("Q8: What is the average number of confirmed cases per day in each region?")
     q9 = st.checkbox("Q9: Which region have a death rate of over 10%?")
-    q10 = str.checkbox("Q10: Which region have the highest mortality rates (number of deaths / number of confirmed cases)?")
+    q10 = st.checkbox("Q10: Which region have the highest mortality rates (number of deaths / number of confirmed cases?")
 
     # Question 1
     if q1:
