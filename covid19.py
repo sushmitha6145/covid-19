@@ -161,21 +161,22 @@ if uploaded_file is not None:
            ax.legend()
            st.pyplot(fig)
     # Question 15
-    if st.checkbox("Q15: Can you create a heatmap showing the number of confirmed cases by region and date?"):   
-        # Pivot the data to get the number of confirmed cases by region and date
-        pivot_data = data.pivot('Region', 'Date', 'Confirmed')
+    if st.checkbox("Q15: How has the distribution of COVID-19 cases changed over time in different regions? Can you show this on a heatmap?"):   
+ 
 
-        # Create the heatmap
-        sns.heatmap(pivot_data, cmap='YlOrRd')
+# Pivot the data to get the number of confirmed cases by region and date
+pivot_data = data.pivot('region', 'date', 'confirmed')
 
-        # Set the plot title and axis labels
-        plt.title('Number of Confirmed Cases by Region and Date')
-        plt.xlabel('Date')
-        plt.ylabel('Region')
+# Create the heatmap
+sns.heatmap(pivot_data, cmap='YlOrRd')
 
-        # Show the plot
-        plt.show()
+# Set the plot title and axis labels
+plt.title('Number of Confirmed Cases by Region and Date')
+plt.xlabel('Date')
+plt.ylabel('Region')
 
+# Show the plot
+plt.show()
 
 
 
