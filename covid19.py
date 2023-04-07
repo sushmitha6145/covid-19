@@ -169,7 +169,7 @@ if uploaded_file is not None:
            st.pyplot(fig)
      # Question 13
 
-     if st.checkbox("Q13: Show a line chart representing the number of confirmed, deaths, and recovered cases over time"):
+      if st.checkbox("Q13: Show a line chart representing the number of confirmed, deaths, and recovered cases over time"):
             # Group data by date and sum the cases
             grouped_data = data.groupby('Date')[['Confirmed', 'Deaths', 'Recovered']].sum()
     
