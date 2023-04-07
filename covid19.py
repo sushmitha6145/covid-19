@@ -106,7 +106,7 @@ if uploaded_file is not None:
            
     # Question 10  
            
-    if st.checkbox("Q10: Which region have the highest mortality rates (number of deaths / number of confirmed cases?"):
+    if st.checkbox("Q10: Which region have the highest mortality rates (number of deaths / number of confirmed cases?)"):
            #Calculate mortality rate
            data['Mortality_Rate'] = data['Deaths'] / data['Confirmed']
            #Group data by country and sort by mortality rate
