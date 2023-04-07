@@ -170,5 +170,3 @@ if uploaded_file is not None:
            plt.axis('equal')
            plt.show()
 
-
-
