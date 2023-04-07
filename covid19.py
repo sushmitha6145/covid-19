@@ -31,7 +31,8 @@ if uploaded_file is not None:
     # Checkboxes for questions
     q1 = st.checkbox("Q1: Show the number of Confirmed, Deaths, and Recovered cases in each Region")
     q2 = st.checkbox("Q2: Remove all the records where Confirmed Cases is Less Than 10")
-    q3 = st.checkbox("Q4: In which Region, minimum number of Deaths cases were recorded?")
+    q3 = st.checkbox("Q3: In which Region, maximum number of Deaths cases were recorded?")
+    q4 = st.checkbox("Q4: In which Region, minimum number of Deaths cases were recorded?")
     q5 = st.checkbox("Q5: How many Confirmed, Deaths & Recovered cases were reported from India till 29 April 2020?")
     q6a = st.checkbox("Q6-A: Sort the entire data wrt No. of Confirmed cases in ascending order")
     q6b = st.checkbox("Q6-B: Sort the entire data wrt No. of Recovered cases in descending order")
