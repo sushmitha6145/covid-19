@@ -82,10 +82,10 @@ if uploaded_file is not None:
             loss_of_smell_or_taste = st.checkbox("Loss of Smell or Taste")
     
            # Check if any of the symptoms are present
-     if fever or cough or tiredness or breathing_difficulty or sore_throat or body_aches or loss_of_smell_or_taste:
-            st.write("Based on the symptoms, the patient may have COVID-19.")
-      else:
-            st.write("Based on the symptoms, the patient is unlikely to have COVID-19.")
+            if fever or cough or tiredness or breathing_difficulty or sore_throat or body_aches or loss_of_smell_or_taste:
+                st.write("Based on the symptoms, the patient may have COVID-19.")
+            else:
+                st.write("Based on the symptoms, the patient is unlikely to have COVID-19.")
                 
    # Question 8
 
