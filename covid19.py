@@ -33,7 +33,7 @@ if uploaded_file is not None:
     # Question 1
     
     if st.checkbox("Q1: Show the number of Confirmed, Deaths, and Recovered cases in each Region"):
-          st.write(data.groupby('region')[['Confirmed'].sum(),['Deaths'].sum(), ['Recovered'].sum()])
+          st.write(data.groupby('Region')[['Confirmed'].sum(),['Deaths'].sum(), ['Recovered'].sum()])
         
     # Question 2
     
