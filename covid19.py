@@ -161,7 +161,7 @@ if uploaded_file is not None:
            ax.legend()
            st.pyplot(fig)
     # Question 15
-    if st.checkbox("Q11: How does the number of confirmed cases and deaths change over time in a specific region?"):
+    if st.checkbox("Q15: How does the number of confirmed cases and deaths change over time in a specific region?"):
            # Get list of available regions
            Regions = data['Region'].unique().tolist()
            # Select region from dropdown
