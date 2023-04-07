@@ -109,7 +109,7 @@ if uploaded_file is not None:
     if q9:
        st.subheader("Q9: Which countries have a death rate of over 10%?")
        data['Death Rate'] = (data['Deaths'] / data['Confirmed']) * 100
-       high_death_rate = data[data['Death Rate'] > 10]['Country/Region']
+       high_death_rate = data[data['Death Rate'] > 10]['Region']
        st.write(high_death_rate.unique())
     # Question 10
     if q10:
@@ -117,5 +117,5 @@ if uploaded_file is not None:
        # Calculate mortality rate
        data['Mortality_Rate'] = data['Deaths'] / data['Confirmed']
        # Group data by country and sort by mortality rate
-       mortality_by_country = data.groupby('Country')['Mortality_Rate'].max().sort_values(ascending=False)
-       st.write(mortality_by_country)
+       mortality_by_Region = data.groupby('Country')['Mortality_Rate'].max().sort_values(ascending=False)
+       st.write(mortality_by_Region)
