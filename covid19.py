@@ -161,17 +161,14 @@ if uploaded_file is not None:
            ax.legend()
            st.pyplot(fig)
     # Question 15
-    if st.checkbox("Q15: Can you create a pie chart showing the percentage of confirmed cases by region?"):  
-           
-
-# group data by region and sum the confirmed cases
-region_data = data.groupby(['region']).agg({'confirmed': 'sum'})
-
-# create a pie chart
-plt.pie(region_data['confirmed'], labels=region_data.index, autopct='%1.1f%%')
-plt.title('Percentage of Confirmed Cases by Region')
-plt.axis('equal')
-plt.show()
+    if st.checkbox("Q15: Can you create a pie chart showing the percentage of confirmed cases by region?"):         
+           # group data by region and sum the confirmed cases
+           region_data = data.groupby(['region']).agg({'confirmed': 'sum'})
+           # create a pie chart
+           plt.pie(region_data['confirmed'], labels=region_data.index, autopct='%1.1f%%')
+           plt.title('Percentage of Confirmed Cases by Region')
+           plt.axis('equal')
+           plt.show()
 
 
 
