@@ -88,6 +88,8 @@ if uploaded_file is not None:
                 st.write("Based on the symptoms, the patient is unlikely to have COVID-19.")
 
     # Question 8
+    if st.checkbox("Q8: Which Region has the highest number of Confirmed cases?"):
+           st.write(data.groupby('Region')['Confirmed'].sum().sort_values(ascending=False).head(1).index[0])
 
     
         
