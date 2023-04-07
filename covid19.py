@@ -89,12 +89,7 @@ if uploaded_file is not None:
 
     # Question 8
 
-    if st.checkbox("Q8: Which country has the highest number of confirmed cases per million population?"):
-           # Calculate confirmed cases per million population
-           data['Confirmed_per_Million'] = data['Confirmed'] / (data['Population'] / 1000000)
-           # Group data by country and sort by confirmed cases per million population
-           confirmed_by_region = data.groupby('Region')['Confirmed_per_Million'].max().sort_values(ascending=False)
-           st.write(confirmed_by_Region.head(1))
+    
         
     # Question 9  
     
@@ -111,6 +106,55 @@ if uploaded_file is not None:
            #Group data by country and sort by mortality rate
            mortality_by_Region = data.groupby('Region')['Mortality_Rate'].max().sort_values(ascending=False)
            st.write(mortality_by_Region)
-
-        
     
+    # Question 11
+    if st.checkbox("Q11: Show a bar chart showing the total confirmed cases for each region"):
+          region_confirmed = data.groupby("Region")["Confirmed"].sum().reset_index()
+          fig, ax = plt.subplots()
+          sns.barplot(x="Region", y="Confirmed", data=region_confirmed, ax=ax)
+          ax.set_title("Total Confirmed Cases by Region")
+          ax.set_xlabel("Region")
+          ax.set_ylabel("Confirmed Cases")
+          st.pyplot(fig) 
+    
+    # Question 12
+    if st.checkbox("Q12: Create a line chart showing the trend of Confirmed, Deaths, and Recovered cases over time."):
+          data_by_date = data.groupby(['Date'])[['Confirmed', 'Deaths', 'Recovered']].sum()
+          st.line_chart(data_by_date)
+
+    
+    
+    
+    
+    
+    # Question 13
+
+    if st.checkbox("Q13: Show a bar chart of the top 10 countries with the highest number of confirmed cases."):
+           top10 = data.groupby('region')['Confirmed'].sum().sort_values(ascending=False).head(10)
+           plt.figure(figsize=(12,6))
+           plt.title("Top 10 regions with Highest Number of Confirmed Cases", fontsize=18)
+           plt.xlabel("region", fontsize=14)
+           plt.ylabel("Number of Confirmed Cases", fontsize=14)
+           sns.barplot(x=top10.index, y=top10.values)
+           st.pyplot()
+        
+    # Question 14
+
+    if st.checkbox("Q14: Show the trend of Confirmed, Deaths, and Recovered cases over time for a selected region"):
+           # Create a dropdown menu for region selection
+           regions = data['Region'].unique()
+           selected_region = st.selectbox("Select a region", regions)
+    
+           # Filter data for the selected region
+           region_data = data[data['Region'] == selected_region]
+    
+           # Line chart showing the trend of Confirmed, Deaths, and Recovered cases over time
+           fig, ax = plt.subplots(figsize=(12, 8))
+           ax.plot(region_data['Date'], region_data['Confirmed'], label='Confirmed')
+           ax.plot(region_data['Date'], region_data['Deaths'], label='Deaths')
+           ax.plot(region_data['Date'], region_data['Recovered'], label='Recovered')
+           ax.set_xlabel('Date')
+           ax.set_ylabel('Number of Cases')
+           ax.set_title(f"{selected_region} COVID-19 Cases")
+           ax.legend()
+           st.pyplot(fig)
