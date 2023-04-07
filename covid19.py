@@ -73,24 +73,24 @@ if uploaded_file is not None:
     # Question 7
 
    if st.checkbox("Q7: Check if the patient is likely to have COVID-19 based on symptoms"):
-       # Create checkboxes for symptoms
-       fever = st.checkbox("Fever")
-       cough = st.checkbox("Dry Cough")
-       tiredness = st.checkbox("Tiredness")
-       breathing_difficulty = st.checkbox("Difficulty in Breathing")
-       sore_throat = st.checkbox("Sore Throat")
-       body_aches = st.checkbox("Body Aches")
-       loss_of_smell_or_taste = st.checkbox("Loss of Smell or Taste")
+          # Create checkboxes for symptoms
+          fever = st.checkbox("Fever")
+          cough = st.checkbox("Dry Cough")
+          tiredness = st.checkbox("Tiredness")
+          breathing_difficulty = st.checkbox("Difficulty in Breathing")
+          sore_throat = st.checkbox("Sore Throat")
+          body_aches = st.checkbox("Body Aches")
+          loss_of_smell_or_taste = st.checkbox("Loss of Smell or Taste")
 
     # Check if any of the symptoms are present
-        if fever or cough or tiredness or breathing_difficulty or sore_throat or body_aches or loss_of_smell_or_taste:
-            st.write("Based on the symptoms, the patient may have COVID-19.")
-        else:
-            st.write("Based on the symptoms, the patient is unlikely to have COVID-19.")
+    if fever or cough or tiredness or breathing_difficulty or sore_throat or body_aches or loss_of_smell_or_taste:
+          st.write("Based on the symptoms, the patient may have COVID-19.")
+    else:
+           st.write("Based on the symptoms, the patient is unlikely to have COVID-19.")
 
 # Question 8
 
-   if st.checkbox("Q8: What is the average number of confirmed cases per day in each region?"):
+    if st.checkbox("Q8: What is the average number of confirmed cases per day in each region?"):
        data['Date'] = pd.to_datetime(data['Date'])
        data_grouped = data.groupby(['Region'].sum().reset_index())
        avg_confirmed_cases = data_grouped.groupby('Region')['Confirmed'].mean()
