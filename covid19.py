@@ -161,22 +161,17 @@ if uploaded_file is not None:
            ax.legend()
            st.pyplot(fig)
     # Question 15
-    if st.checkbox("Q15: How has the distribution of COVID-19 cases changed over time in different regions? Can you show this on a heatmap?"):   
- 
+    if st.checkbox("Q15: Can you create a pie chart showing the percentage of confirmed cases by region?"):  
+           
 
-           # Pivot the data to get the number of confirmed cases by region and date
-           pivot_data = data.pivot('region', 'date', 'confirmed')
+# group data by region and sum the confirmed cases
+region_data = data.groupby(['region']).agg({'confirmed': 'sum'})
 
-           # Create the heatmap
-           sns.heatmap(pivot_data, cmap='YlOrRd')
-
-           # Set the plot title and axis labels
-           plt.title('Number of Confirmed Cases by Region and Date')
-           plt.xlabel('Date')
-           plt.ylabel('Region')
-
-           # Show the plot
-           plt.show()
+# create a pie chart
+plt.pie(region_data['confirmed'], labels=region_data.index, autopct='%1.1f%%')
+plt.title('Percentage of Confirmed Cases by Region')
+plt.axis('equal')
+plt.show()
 
 
 
