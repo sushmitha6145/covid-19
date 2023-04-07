@@ -117,5 +117,5 @@ if uploaded_file is not None:
        # Calculate mortality rate
        data['Mortality_Rate'] = data['Deaths'] / data['Confirmed']
        # Group data by country and sort by mortality rate
-       mortality_by_Region = data.groupby('Country')['Mortality_Rate'].max().sort_values(ascending=False)
+       mortality_by_Region = data.groupby('Region')['Mortality_Rate'].max().sort_values(ascending=False)
        st.write(mortality_by_Region)
