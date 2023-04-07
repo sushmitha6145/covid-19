@@ -38,8 +38,8 @@ if uploaded_file is not None:
     q6b = st.sidebar.checkbox("Q6-B: Sort the entire data wrt No. of Recovered cases in descending order")
     q7 = st.sidebar.checkbox("Q7: Check if the patient is likely to have COVID-19 based on symptoms") 
     q8 = st.sidebar.checkbox("Q8: What is the average number of confirmed cases per day in each region?")
-    q9 = st.sidebar.checkbox("Q9: Which countries have a death rate of over 10%?")
-    q10 = st.sidebar.checkbox("Q10: Which countries have the highest mortality rates (number of deaths / number of confirmed cases)?")
+    q9 = st.sidebar.checkbox("Q9: Which region have a death rate of over 10%?")
+    q10 = st.sidebar.checkbox("Q10: Which region have the highest mortality rates (number of deaths / number of confirmed cases)?")
 
     # Question 1
     if q1:
@@ -107,13 +107,13 @@ if uploaded_file is not None:
        st.write(avg_confirmed_cases)
     # Question 9
     if q9:
-       st.subheader("Q9: Which countries have a death rate of over 10%?")
+       st.subheader("Q9: Which Region have a death rate of over 10%?")
        data['Death Rate'] = (data['Deaths'] / data['Confirmed']) * 100
        high_death_rate = data[data['Death Rate'] > 10]['Region']
        st.write(high_death_rate.unique())
     # Question 10
     if q10:
-       st.subheader("Q10: Which countries have the highest mortality rates (number of deaths / number of confirmed cases)?")
+       st.subheader("Q10: Which Region have the highest mortality rates (number of deaths / number of confirmed cases)?")
        # Calculate mortality rate
        data['Mortality_Rate'] = data['Deaths'] / data['Confirmed']
        # Group data by country and sort by mortality rate
