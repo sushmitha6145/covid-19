@@ -89,11 +89,11 @@ if uploaded_file is not None:
 
     # Question 8
 
-    if st.checkbox("Q8: What is the average number of confirmed cases per day in each region?"):
-          data['Date'] = pd.to_datetime(data['Date'])
-          data_grouped = data.groupby(['Region'].sum())
-          avg_confirmed_cases = data_grouped.groupby('Region')['Confirmed'].mean()
-          st.write(avg_confirmed_cases)
+   # if st.checkbox("Q8: What is the average number of confirmed cases per day in each region?"):
+    #      data['Date'] = pd.to_datetime(data['Date'])
+     #     data_grouped = data.groupby(['Region'].sum())
+      #    avg_confirmed_cases = data_grouped.groupby('Region')['Confirmed'].mean()
+       #   st.write(avg_confirmed_cases)
 
         
     # Question 9  
