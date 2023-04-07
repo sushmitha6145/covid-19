@@ -29,7 +29,7 @@ if uploaded_file is not None:
     st.title("COVID-19 Data Analysis")
 
     # Checkboxes for questions
-    q1 = st.checkbox("Q1: Show the number of Confirmed, Deaths, and Recovered cases in each Region")
+    if st.checkbox("Q1: Show the number of Confirmed, Deaths, and Recovered cases in each Region")
       st.write(data.groupby('Region')['Confirmed', 'Deaths', 'Recovered'].sum())
     q2 = st.sidebar.checkbox("Q2: Remove all the records where Confirmed Cases is Less Than 10")
     q3 = st.sidebar.checkbox("Q3: In which Region, maximum number of Confirmed cases were recorded?")
