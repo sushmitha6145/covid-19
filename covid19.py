@@ -161,26 +161,22 @@ if uploaded_file is not None:
            ax.legend()
            st.pyplot(fig)
     # Question 15
-    if st.checkbox("Q15: How does the number of confirmed cases and deaths change over time in a specific region?"):
-           # Get list of available regions
-           Regions = data['Region'].unique().tolist()
-           # Select region from dropdown
-           selected_Region = st.selectbox("Select a Region", Regions)
-           # Filter data for selected region
-           Region_data = data[data['Region'] == selected_Region]
-           # Group data by date
-           Region_data = Region_data.groupby('Date')[['Confirmed', 'Deaths']].sum()
-           # Plot data
-           fig, ax = plt.subplots(figsize=(10,5))
-           ax.plot(Region_data.index, Region_data['Confirmed'], label='Confirmed Cases')
-           ax.plot(Region_data.index, Region_data['Deaths'], label='Deaths')
-           ax.set_xlabel('Date')
-           ax.set_ylabel('Number of Cases')
-           ax.set_title(f'COVID-19 Cases in {selected_Region}')
-           ax.legend()
-           st.pyplot(fig)
+    if st.checkbox("Q15:Can you create a heatmap showing the number of confirmed cases by region and date?"):
+           
 
+       # Pivot the data to get the number of confirmed cases by region and date
+pivot_df = df.pivot('region', 'date', 'confirmed')
 
+# Create the heatmap
+sns.heatmap(pivot_df, cmap='YlOrRd')
+
+# Set the plot title and axis labels
+plt.title('Number of Confirmed Cases by Region and Date')
+plt.xlabel('Date')
+plt.ylabel('Region')
+
+# Show the plot
+plt.show()
 
 
 
