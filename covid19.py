@@ -83,18 +83,18 @@ if uploaded_file is not None:
     
            # Check if any of the symptoms are present
             if fever or cough or tiredness or breathing_difficulty or sore_throat or body_aches or loss_of_smell_or_taste:
-                    st.write("Based on the symptoms, the patient may have COVID-19.")
+                   st.write("Based on the symptoms, the patient may have COVID-19.")
             else:
-                    st.write("Based on the symptoms, the patient is unlikely to have COVID-19.")
+                   st.write("Based on the symptoms, the patient is unlikely to have COVID-19.")
                 
    # Question 8
 
-     if st.checkbox("Q8: What is the average number of confirmed cases per day in each region?"):
-              data['Date'] = pd.to_datetime(data['Date'])
-              #data['Day'] = data['Date'].dt.date
-              data_grouped = data.groupby(['Region'].sum().reset_index())
-              avg_confirmed_cases = data_grouped.groupby('Region')['Confirmed'].mean()
-              st.write(avg_confirmed_cases)
+      if st.checkbox("Q8: What is the average number of confirmed cases per day in each region?"):
+             data['Date'] = pd.to_datetime(data['Date'])
+             #data['Day'] = data['Date'].dt.date
+             data_grouped = data.groupby(['Region'].sum().reset_index())
+             avg_confirmed_cases = data_grouped.groupby('Region')['Confirmed'].mean()
+             st.write(avg_confirmed_cases)
         
     # Question 9  
     
