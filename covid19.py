@@ -163,9 +163,9 @@ if uploaded_file is not None:
     # Question 15
     if st.checkbox("Q15: Can you create a pie chart showing the percentage of confirmed cases by region?"):         
            # group data by region and sum the confirmed cases
-           region_data = data.groupby(['region']).agg({'confirmed': 'sum'})
+           region_data = data.groupby(['Region']).agg({'Confirmed': 'sum'})
            # create a pie chart
-           plt.pie(region_data['confirmed'], labels=region_data.index, autopct='%1.1f%%')
+           plt.pie(region_data['Confirmed'], labels=region_data.index, autopct='%1.1f%%')
            plt.title('Percentage of Confirmed Cases by Region')
            plt.axis('equal')
            plt.show()
