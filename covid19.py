@@ -167,16 +167,16 @@ if uploaded_file is not None:
            # Pivot the data to get the number of confirmed cases by region and date
            pivot_data = data.pivot('region', 'date', 'confirmed')
 
-          # Create the heatmap
-          sns.heatmap(pivot_data, cmap='YlOrRd')
+           # Create the heatmap
+           sns.heatmap(pivot_data, cmap='YlOrRd')
 
-          # Set the plot title and axis labels
-          plt.title('Number of Confirmed Cases by Region and Date')
-          plt.xlabel('Date')
-          plt.ylabel('Region')
+           # Set the plot title and axis labels
+           plt.title('Number of Confirmed Cases by Region and Date')
+           plt.xlabel('Date')
+           plt.ylabel('Region')
 
-          # Show the plot
-          plt.show()
+           # Show the plot
+           plt.show()
 
 
 
