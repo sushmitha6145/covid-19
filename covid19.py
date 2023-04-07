@@ -163,10 +163,10 @@ if uploaded_file is not None:
     # Question 15
     if st.checkbox("Q15: Can you create a heatmap showing the number of confirmed cases by region and date?"):   
         # Pivot the data to get the number of confirmed cases by region and date
-        pivot_df = df.pivot('Region', 'Date', 'Confirmed')
+        pivot_data = df.pivot('Region', 'Date', 'Confirmed')
 
         # Create the heatmap
-        sns.heatmap(pivot_df, cmap='YlOrRd')
+        sns.heatmap(pivot_data, cmap='YlOrRd')
 
         # Set the plot title and axis labels
         plt.title('Number of Confirmed Cases by Region and Date')
