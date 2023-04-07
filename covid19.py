@@ -29,23 +29,21 @@ if uploaded_file is not None:
     st.title("COVID-19 Data Analysis")
 
     # Checkboxes for questions
-    if st.checkbox("Q1: Show the number of Confirmed, Deaths, and Recovered cases in each Region")
-      st.write(data.groupby('Region')['Confirmed', 'Deaths', 'Recovered'].sum())
-    q2 = st.sidebar.checkbox("Q2: Remove all the records where Confirmed Cases is Less Than 10")
-    q3 = st.sidebar.checkbox("Q3: In which Region, maximum number of Confirmed cases were recorded?")
-    q4 = st.sidebar.checkbox("Q4: In which Region, minimum number of Deaths cases were recorded?")
-    q5 = st.sidebar.checkbox("Q5: How many Confirmed, Deaths & Recovered cases were reported from India till 29 April 2020?")
-    q6a = st.sidebar.checkbox("Q6-A: Sort the entire data wrt No. of Confirmed cases in ascending order")
-    q6b = st.sidebar.checkbox("Q6-B: Sort the entire data wrt No. of Recovered cases in descending order")
-    q7 = st.sidebar.checkbox("Q7: Check if the patient is likely to have COVID-19 based on symptoms") 
-    q8 = st.sidebar.checkbox("Q8: What is the average number of confirmed cases per day in each region?")
-    q9 = st.sidebar.checkbox("Q9: Which region have a death rate of over 10%?")
-    q10 = st.sidebar.checkbox("Q10: Which region have the highest mortality rates (number of deaths / number of confirmed cases)?")
+    q1 = st.checkbox("Q1: Show the number of Confirmed, Deaths, and Recovered cases in each Region" 
+    q2 = st.checkbox("Q2: Remove all the records where Confirmed Cases is Less Than 10")
+    q3 = st.checkbox("Q4: In which Region, minimum number of Deaths cases were recorded?")
+    q5 = st.checkbox("Q5: How many Confirmed, Deaths & Recovered cases were reported from India till 29 April 2020?")
+    q6a = st.checkbox("Q6-A: Sort the entire data wrt No. of Confirmed cases in ascending order")
+    q6b = st.checkbox("Q6-B: Sort the entire data wrt No. of Recovered cases in descending order")
+    q7 = st.checkbox("Q7: Check if the patient is likely to have COVID-19 based on symptoms") 
+    q8 = st.checkbox("Q8: What is the average number of confirmed cases per day in each region?")
+    q9 = st.checkbox("Q9: Which region have a death rate of over 10%?")
+    q10 = str.checkbox("Q10: Which region have the highest mortality rates (number of deaths / number of confirmed cases)?")
 
     # Question 1
-    #if q1:
-     #   st.subheader("Q1: Show the number of Confirmed, Deaths, and Recovered cases in each Region")
-      #  st.write(data.groupby('Region')['Confirmed', 'Deaths', 'Recovered'].sum())
+    if q1:
+       st.subheader("Q1: Show the number of Confirmed, Deaths, and Recovered cases in each Region")
+       st.write(data.groupby('Region')['Confirmed', 'Deaths', 'Recovered'].sum())
 
     # Question 2
     if q2:
