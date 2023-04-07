@@ -72,7 +72,7 @@ if uploaded_file is not None:
 
     # Question 7
 
-   if st.checkbox("Q7: Check if the patient is likely to have COVID-19 based on symptoms") :
+   if st.checkbox("Q7: Check if the patient is likely to have COVID-19 based on symptoms"):
        # Create checkboxes for symptoms
        fever = st.checkbox("Fever")
        cough = st.checkbox("Dry Cough")
@@ -83,10 +83,10 @@ if uploaded_file is not None:
        loss_of_smell_or_taste = st.checkbox("Loss of Smell or Taste")
 
     # Check if any of the symptoms are present
-    if fever or cough or tiredness or breathing_difficulty or sore_throat or body_aches or loss_of_smell_or_taste:
-        st.write("Based on the symptoms, the patient may have COVID-19.")
-    else:
-        st.write("Based on the symptoms, the patient is unlikely to have COVID-19.")
+        if fever or cough or tiredness or breathing_difficulty or sore_throat or body_aches or loss_of_smell_or_taste:
+            st.write("Based on the symptoms, the patient may have COVID-19.")
+        else:
+            st.write("Based on the symptoms, the patient is unlikely to have COVID-19.")
 
 # Question 8
 
