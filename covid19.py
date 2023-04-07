@@ -32,28 +32,28 @@ if uploaded_file is not None:
     
     # Question 1
     
-    if st.checkbox("Q1: Show the number of Confirmed, Deaths, and Recovered cases in each Region")
+    if st.checkbox("Q1: Show the number of Confirmed, Deaths, and Recovered cases in each Region"):
          st.write(data.groupby('Region')['Confirmed', 'Deaths', 'Recovered'].sum())
         
     # Question 2
     
-    if st.checkbox("Q2: Remove all the records where Confirmed Cases is Less Than 10")
+    if st.checkbox("Q2: Remove all the records where Confirmed Cases is Less Than 10"):
           data = data[~(data.Confirmed < 10)]
           st.write(data)
             
     # Question 3
     
-    if st.checkbox("Q3: In which Region, maximum number of Deaths cases were recorded?")
+    if st.checkbox("Q3: In which Region, maximum number of Deaths cases were recorded?"):
            st.write(data.groupby('Region')['Confirmed'].sum().sort_values(ascending=False).head(1))
         
     # Question 4
     
-    if st.checkbox("Q4: In which Region, minimum number of Deaths cases were recorded?")
+    if st.checkbox("Q4: In which Region, minimum number of Deaths cases were recorded?"):
            st.write(data.groupby('Region')['Deaths'].sum().sort_values().head(1))
         
      # Question 5
     
-    if st.checkbox("Q5: How many Confirmed, Deaths & Recovered cases were reported from India till 29 April 2020?")
+    if st.checkbox("Q5: How many Confirmed, Deaths & Recovered cases were reported from India till 29 April 2020?"):
            india_data = data[data['Region'] == 'India']
            st.write("Confirmed cases:", india_data['Confirmed'].sum())
            st.write("Deaths:", india_data['Deaths'].sum())
@@ -61,17 +61,17 @@ if uploaded_file is not None:
             
     # Question 6-A
     
-    if st.checkbox("Q6-A: Sort the entire data wrt No. of Confirmed cases in ascending order")
+    if st.checkbox("Q6-A: Sort the entire data wrt No. of Confirmed cases in ascending order"):
             st.write(data.sort_values(by=['Confirmed'], ascending=True))
         
      # Question 6-B  
     
-    if st.checkbox("Q6-B: Sort the entire data wrt No. of Recovered cases in descending order")
+    if st.checkbox("Q6-B: Sort the entire data wrt No. of Recovered cases in descending order"):
             st.write(data.sort_values(by=['Recovered'], ascending=False))
         
     # Question 7
     
-    if st.checkbox("Q7: Check if the patient is likely to have COVID-19 based on symptoms") 
+    if st.checkbox("Q7: Check if the patient is likely to have COVID-19 based on symptoms"):
             # Create checkboxes for symptoms
             fever = st.checkbox("Fever")
             cough = st.checkbox("Dry Cough")
@@ -89,7 +89,7 @@ if uploaded_file is not None:
                 
    # Question 8
 
-     if st.checkbox("Q8: What is the average number of confirmed cases per day in each region?")
+     if st.checkbox("Q8: What is the average number of confirmed cases per day in each region?"):
            data['Date'] = pd.to_datetime(data['Date'])
            #data['Day'] = data['Date'].dt.date
            data_grouped = data.groupby(['Region'].sum().reset_index())
@@ -98,14 +98,14 @@ if uploaded_file is not None:
         
     # Question 9  
     
-    if st.checkbox("Q9: Which region have a death rate of over 10%?")
+    if st.checkbox("Q9: Which region have a death rate of over 10%?"):
           data['Death Rate'] = (data['Deaths'] / data['Confirmed']) * 100
           high_death_rate = data[data['Death Rate'] > 10]['Region']
           st.write(high_death_rate.unique()) 
            
     # Question 10  
            
-    if st.checkbox("Q10: Which region have the highest mortality rates (number of deaths / number of confirmed cases?")
+    if st.checkbox("Q10: Which region have the highest mortality rates (number of deaths / number of confirmed cases?"):
               Calculate mortality rate
            #  data['Mortality_Rate'] = data['Deaths'] / data['Confirmed']
               Group data by country and sort by mortality rate
