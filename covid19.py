@@ -158,3 +158,28 @@ if uploaded_file is not None:
            ax.set_title(f"{selected_region} COVID-19 Cases")
            ax.legend()
            st.pyplot(fig)
+     # Question 15
+     if st.checkbox("Q11: How does the number of confirmed cases and deaths change over time in a specific region?"):
+           # Get list of available regions
+           regions = data['Region'].unique().tolist()
+           # Select region from dropdown
+           selected_region = st.selectbox("Select a region", regions)
+           # Filter data for selected region
+           region_data = data[data['Region'] == selected_region]
+           # Group data by date
+           region_data = region_data.groupby('Date')[['Confirmed', 'Deaths']].sum()
+           # Plot data
+           fig, ax = plt.subplots(figsize=(10,5))
+           ax.plot(region_data.index, region_data['Confirmed'], label='Confirmed Cases')
+           ax.plot(region_data.index, region_data['Deaths'], label='Deaths')
+           ax.set_xlabel('Date')
+           ax.set_ylabel('Number of Cases')
+           ax.set_title(f'COVID-19 Cases in {selected_region}')
+           ax.legend()
+           st.pyplot(fig)
+
+
+
+
+
+
