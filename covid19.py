@@ -51,7 +51,7 @@ if uploaded_file is not None:
     if st.checkbox("Q4: In which Region, minimum number of Deaths cases were recorded?"):
            st.write(data.groupby('Region')['Deaths'].sum().sort_values().head(1))
         
-     # Question 5
+    # Question 5
     
     if st.checkbox("Q5: How many Confirmed, Deaths & Recovered cases were reported from India till 29 April 2020?"):
            india_data = data[data['Region'] == 'India']
@@ -83,10 +83,10 @@ if uploaded_file is not None:
           loss_of_smell_or_taste = st.checkbox("Loss of Smell or Taste")
 
     # Check if any of the symptoms are present
-    if fever or cough or tiredness or breathing_difficulty or sore_throat or body_aches or loss_of_smell_or_taste:
-          st.write("Based on the symptoms, the patient may have COVID-19.")
-    else:
-           st.write("Based on the symptoms, the patient is unlikely to have COVID-19.")
+          if fever or cough or tiredness or breathing_difficulty or sore_throat or body_aches or loss_of_smell_or_taste:
+                st.write("Based on the symptoms, the patient may have COVID-19.")
+          else:
+                st.write("Based on the symptoms, the patient is unlikely to have COVID-19.")
 
 # Question 8
 
