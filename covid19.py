@@ -33,7 +33,7 @@ if uploaded_file is not None:
     # Question 1
     
     if st.checkbox("Q1: Show the number of Confirmed, Deaths, and Recovered cases in each Region"):
-         st.write(data.groupby('Region')['Confirmed', 'Deaths', 'Recovered'].sum())
+          st.write(data.groupby('Region')['Confirmed', 'Deaths', 'Recovered'].sum())
         
     # Question 2
     
@@ -62,12 +62,12 @@ if uploaded_file is not None:
     # Question 6-A
     
     if st.checkbox("Q6-A: Sort the entire data wrt No. of Confirmed cases in ascending order"):
-            st.write(data.sort_values(by=['Confirmed'], ascending=True))
+           st.write(data.sort_values(by=['Confirmed'], ascending=True))
         
      # Question 6-B  
     
     if st.checkbox("Q6-B: Sort the entire data wrt No. of Recovered cases in descending order"):
-            st.write(data.sort_values(by=['Recovered'], ascending=False))
+           st.write(data.sort_values(by=['Recovered'], ascending=False))
 
 
     # Question 7
@@ -83,35 +83,35 @@ if uploaded_file is not None:
           loss_of_smell_or_taste = st.checkbox("Loss of Smell or Taste")
 
     # Check if any of the symptoms are present
-    if fever or cough or tiredness or breathing_difficulty or sore_throat or body_aches or loss_of_smell_or_taste:
-          st.write("Based on the symptoms, the patient may have COVID-19.")
-    else:
-          st.write("Based on the symptoms, the patient is unlikely to have COVID-19.")
+          if fever or cough or tiredness or breathing_difficulty or sore_throat or body_aches or loss_of_smell_or_taste:
+                st.write("Based on the symptoms, the patient may have COVID-19.")
+          else:
+                st.write("Based on the symptoms, the patient is unlikely to have COVID-19.")
 
 # Question 8
 
     if st.checkbox("Q8: What is the average number of confirmed cases per day in each region?"):
-       data['Date'] = pd.to_datetime(data['Date'])
-       data_grouped = data.groupby(['Region'].sum().reset_index())
-       avg_confirmed_cases = data_grouped.groupby('Region')['Confirmed'].mean()
-       st.write(avg_confirmed_cases)
+          data['Date'] = pd.to_datetime(data['Date'])
+          data_grouped = data.groupby(['Region'].sum().reset_index())
+          avg_confirmed_cases = data_grouped.groupby('Region')['Confirmed'].mean()
+          st.write(avg_confirmed_cases)
 
         
     # Question 9  
     
     if st.checkbox("Q9: Which region have a death rate of over 10%?"):
-             data['Death Rate'] = (data['Deaths'] / data['Confirmed']) * 100
-             high_death_rate = data[data['Death Rate'] > 10]['Region']
-             st.write(high_death_rate.unique()) 
+           data['Death Rate'] = (data['Deaths'] / data['Confirmed']) * 100
+           high_death_rate = data[data['Death Rate'] > 10]['Region']
+           st.write(high_death_rate.unique()) 
            
     # Question 10  
            
     if st.checkbox("Q10: Which region have the highest mortality rates (number of deaths / number of confirmed cases?"):
-             #Calculate mortality rate
-             data['Mortality_Rate'] = data['Deaths'] / data['Confirmed']
-             #Group data by country and sort by mortality rate
-             mortality_by_Region = data.groupby('Region')['Mortality_Rate'].max().sort_values(ascending=False)
-             st.write(mortality_by_Region)
+           #Calculate mortality rate
+           data['Mortality_Rate'] = data['Deaths'] / data['Confirmed']
+           #Group data by country and sort by mortality rate
+           mortality_by_Region = data.groupby('Region')['Mortality_Rate'].max().sort_values(ascending=False)
+           st.write(mortality_by_Region)
 
         
     
