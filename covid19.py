@@ -161,9 +161,22 @@ if uploaded_file is not None:
            ax.legend()
            st.pyplot(fig)
     # Question 15
-    if st.checkbox("Q12: What is the distribution of Confirmed cases?"):
+    if st.checkbox("Q15: What is the distribution of Confirmed cases?"):
            # Create a histogram of confirmed cases
            fig, ax = plt.subplots()
            ax = sns.histplot(data=data, x='Confirmed', kde=True)
            ax.set_title('Distribution of Confirmed Cases')
            st.pyplot(fig)
+     # Question 13
+
+     if st.checkbox("Q13: Show a line chart representing the number of confirmed, deaths, and recovered cases over time"):
+            # Group data by date and sum the cases
+            grouped_data = data.groupby('Date')[['Confirmed', 'Deaths', 'Recovered']].sum()
+    
+             # Plot the data
+             plt.figure(figsize=(12, 8))
+             sns.lineplot(data=grouped_data)
+             plt.xlabel('Date')
+             plt.ylabel('Number of Cases')
+             plt.title('COVID-19 Cases Over Time')
+             st.pyplot()
