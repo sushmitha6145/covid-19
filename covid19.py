@@ -90,27 +90,27 @@ if uploaded_file is not None:
    # Question 8
 
      if st.checkbox("Q8: What is the average number of confirmed cases per day in each region?"):
-           data['Date'] = pd.to_datetime(data['Date'])
-           #data['Day'] = data['Date'].dt.date
-           data_grouped = data.groupby(['Region'].sum().reset_index())
-           avg_confirmed_cases = data_grouped.groupby('Region')['Confirmed'].mean()
-           st.write(avg_confirmed_cases)
+              data['Date'] = pd.to_datetime(data['Date'])
+              #data['Day'] = data['Date'].dt.date
+              data_grouped = data.groupby(['Region'].sum().reset_index())
+              avg_confirmed_cases = data_grouped.groupby('Region')['Confirmed'].mean()
+              st.write(avg_confirmed_cases)
         
     # Question 9  
     
     if st.checkbox("Q9: Which region have a death rate of over 10%?"):
-          data['Death Rate'] = (data['Deaths'] / data['Confirmed']) * 100
-          high_death_rate = data[data['Death Rate'] > 10]['Region']
-          st.write(high_death_rate.unique()) 
+             data['Death Rate'] = (data['Deaths'] / data['Confirmed']) * 100
+             high_death_rate = data[data['Death Rate'] > 10]['Region']
+             st.write(high_death_rate.unique()) 
            
     # Question 10  
            
     if st.checkbox("Q10: Which region have the highest mortality rates (number of deaths / number of confirmed cases?"):
               Calculate mortality rate
-           #  data['Mortality_Rate'] = data['Deaths'] / data['Confirmed']
+              data['Mortality_Rate'] = data['Deaths'] / data['Confirmed']
               Group data by country and sort by mortality rate
               mortality_by_Region = data.groupby('Region')['Mortality_Rate'].max().sort_values(ascending=False)
-            # st.write(mortality_by_Region)
+              st.write(mortality_by_Region)
 
         
     
