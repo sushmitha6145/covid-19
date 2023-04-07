@@ -68,24 +68,18 @@ if uploaded_file is not None:
     
     if st.checkbox("Q6-B: Sort the entire data wrt No. of Recovered cases in descending order"):
             st.write(data.sort_values(by=['Recovered'], ascending=False))
-        
-    
-                
-       
-        
-   
 
 
     # Question 7
 
-   if st.checkbox("Q7: Check if the patient is likely to have COVID-19 based on symptoms"):
-        # Create checkboxes for symptoms
-        fever = st.checkbox("Fever")
-        cough = st.checkbox("Dry Cough")
-        tiredness = st.checkbox("Tiredness")
-        breathing_difficulty = st.checkbox("Difficulty in Breathing")
-        sore_throat = st.checkbox("Sore Throat")
-        body_aches = st.checkbox("Body Aches")
+   if st.checkbox("Q7: Check if the patient is likely to have COVID-19 based on symptoms") :
+       # Create checkboxes for symptoms
+       fever = st.checkbox("Fever")
+       cough = st.checkbox("Dry Cough")
+       tiredness = st.checkbox("Tiredness")
+       breathing_difficulty = st.checkbox("Difficulty in Breathing")
+       sore_throat = st.checkbox("Sore Throat")
+       body_aches = st.checkbox("Body Aches")
        loss_of_smell_or_taste = st.checkbox("Loss of Smell or Taste")
 
     # Check if any of the symptoms are present
