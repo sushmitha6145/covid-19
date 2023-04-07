@@ -113,7 +113,7 @@ if uploaded_file is not None:
           fig, ax = plt.subplots()
           sns.barplot(x="Region", y="Confirmed", data=region_confirmed, ax=ax)
           ax.set_title("Total Confirmed Cases by Region")
-          ax.set_xlabel("Region")
+          #ax.set_xlabel("Region")
           ax.set_ylabel("Confirmed Cases")
           st.pyplot(fig) 
     
@@ -129,11 +129,11 @@ if uploaded_file is not None:
     
     # Question 13
 
-    if st.checkbox("Q13: Show a bar chart of the top 10 countries with the highest number of confirmed cases."):
-           top10 = data.groupby('region')['Confirmed'].sum().sort_values(ascending=False).head(10)
+    if st.checkbox("Q13: Show a bar chart of the top 10 Regoins with the highest number of confirmed cases."):
+           top10 = data.groupby('Region')['Confirmed'].sum().sort_values(ascending=False).head(10)
            plt.figure(figsize=(12,6))
-           plt.title("Top 10 regions with Highest Number of Confirmed Cases", fontsize=18)
-           plt.xlabel("region", fontsize=14)
+           plt.title("Top 10 Regions with Highest Number of Confirmed Cases", fontsize=18)
+           plt.xlabel("Region", fontsize=14)
            plt.ylabel("Number of Confirmed Cases", fontsize=14)
            sns.barplot(x=top10.index, y=top10.values)
            st.pyplot()
