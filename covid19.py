@@ -176,9 +176,10 @@ if uploaded_file is not None:
            ax = sns.histplot(data=data, x='Confirmed', kde=True)
            ax.set_title('Distribution of Confirmed Cases')
            st.pyplot(fig)
-    # Question 13
+            
+    # Question 16
 
-    if st.checkbox("Q14: Show a pie chart representing the number of confirmed, deaths, and recovered cases for each country"):
+    if st.checkbox("Q16: Show a pie chart representing the number of confirmed, deaths, and recovered cases for each country"):
            # Group data by country and sum the cases
            grouped_data = data.groupby('Region')[['Confirmed', 'Deaths', 'Recovered']].sum()
     
