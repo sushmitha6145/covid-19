@@ -130,7 +130,7 @@ if uploaded_file is not None:
     
     
     # Question 13
-
+    st.set_option('deprecation.showPyplotGlobalUse', False)
     if st.checkbox("Q13: Show a bar chart of the top 10 Regoins with the highest number of confirmed cases."):
            top10 = data.groupby('Region')['Confirmed'].sum().sort_values(ascending=False).head(10)
            plt.figure(figsize=(12,6))
