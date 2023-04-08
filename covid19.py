@@ -110,14 +110,14 @@ if uploaded_file is not None:
            st.write(mortality_by_Region)
     
     # Question 11
-    if st.checkbox("Q11: Show a bar chart showing the total confirmed cases for each region"):
-          region_confirmed = data.groupby("Region")["Confirmed"].sum().reset_index()
-          fig, ax = plt.subplots()
-          sns.barplot(x="Region", y="Confirmed", data=region_confirmed, ax=ax)
-          ax.set_title("Total Confirmed Cases by Region")
-          #ax.set_xlabel("Region")
-          ax.set_ylabel("Confirmed Cases")
-          st.pyplot(fig) 
+    if st.checkbox("Q11: Show a line graph showing the total confirmed cases for each region"):
+           region_confirmed = data.groupby("Region")["Confirmed"].sum().reset_index()
+           fig, ax = plt.subplots()
+           sns.lineplot(x="Region", y="Confirmed", data=region_confirmed, ax=ax)
+           ax.set_title("Total Confirmed Cases by Region")
+           ax.set_xlabel("Region")
+           ax.set_ylabel("Confirmed Cases")
+           st.pyplot(fig)
     
     # Question 12
     if st.checkbox("Q12: Create a histogram showing the distribution of Confirmed, Deaths, and Recovered cases over time."):
