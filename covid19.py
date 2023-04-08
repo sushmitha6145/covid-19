@@ -169,14 +169,17 @@ if uploaded_file is not None:
            st.pyplot(fig)
     # Question 13
 
-    if st.checkbox("Q14: Show a bar chart representing the number of confirmed, deaths, and recovered cases for each country"):
+    if st.checkbox("Q14: Show a pie chart representing the number of confirmed, deaths, and recovered cases for each country"):
            # Group data by country and sum the cases
            grouped_data = data.groupby('Region')[['Confirmed', 'Deaths', 'Recovered']].sum()
     
-           # Plot the data
-           plt.figure(figsize=(12, 8))
-           grouped_data.plot(kind='bar')
-           plt.xlabel('Region')
-           plt.ylabel('Number of Cases')
-           plt.title('COVID-19 Cases By Region')
-           st.pyplot()
+           # Create a new figure and subplot
+           fig, ax = plt.subplots(figsize=(10, 10))
+    
+           # Plot the data as a pie chart
+           ax.pie(grouped_data.sum(), labels=grouped_data.columns, autopct='%1.1f%%', startangle=90)
+           ax.axis('equal')
+           ax.set_title('COVID-19 Cases By Region')
+    
+           # Show the plot
+           st.pyplot(fig)
