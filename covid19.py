@@ -120,10 +120,13 @@ if uploaded_file is not None:
           st.pyplot(fig) 
     
     # Question 12
-    if st.checkbox("Q12: Create a line chart showing the trend of Confirmed, Deaths, and Recovered cases over time."):
+    if st.checkbox("Q12: Create a histogram showing the distribution of Confirmed, Deaths, and Recovered cases over time."):
           data_by_date = data.groupby(['Date'])[['Confirmed', 'Deaths', 'Recovered']].sum()
-          st.line_chart(data_by_date)
-
+          data_by_date.hist(bins=10, figsize=(12,8))
+          plt.xlabel('Number of Cases')
+          plt.ylabel('Frequency')
+          plt.title('Distribution of COVID-19 Cases Over Time')
+          st.pyplot()
     
     
     
