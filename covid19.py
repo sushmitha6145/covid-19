@@ -146,23 +146,23 @@ if uploaded_file is not None:
     # Question 14
 
     if st.checkbox("Q14: Show the trend of Confirmed, Deaths, and Recovered cases over time for a selected region"):
-    # Create a dropdown menu for region selection
-    regions = data['Region'].unique()
-    selected_region = st.selectbox("Select a region", regions)
+           # Create a dropdown menu for region selection
+           regions = data['Region'].unique()
+           selected_region = st.selectbox("Select a region", regions)
 
-    # Filter data for the selected region
-    region_data = data[data['Region'] == selected_region]
+           # Filter data for the selected region
+           region_data = data[data['Region'] == selected_region]
 
-    # Scatter plot showing the trend of Confirmed, Deaths, and Recovered cases over time
-    fig, ax = plt.subplots(figsize=(12, 8))
-    ax.scatter(region_data['Date'], region_data['Confirmed'], label='Confirmed')
-    ax.scatter(region_data['Date'], region_data['Deaths'], label='Deaths')
-    ax.scatter(region_data['Date'], region_data['Recovered'], label='Recovered')
-    ax.set_xlabel('Date')
-    ax.set_ylabel('Number of Cases')
-    ax.set_title(f"{selected_region} COVID-19 Cases")
-    ax.legend()
-    st.pyplot(fig)
+           # Scatter plot showing the trend of Confirmed, Deaths, and Recovered cases over time
+           fig, ax = plt.subplots(figsize=(12, 8))
+           ax.scatter(region_data['Date'], region_data['Confirmed'], label='Confirmed')
+           ax.scatter(region_data['Date'], region_data['Deaths'], label='Deaths')
+           ax.scatter(region_data['Date'], region_data['Recovered'], label='Recovered')
+           ax.set_xlabel('Date')
+           ax.set_ylabel('Number of Cases')
+           ax.set_title(f"{selected_region} COVID-19 Cases")
+           ax.legend()
+           st.pyplot(fig)
 
 
 
