@@ -110,12 +110,12 @@ if uploaded_file is not None:
            st.write(mortality_by_Region)
     
     # Question 11
-    if st.checkbox("Q11: Show a line graph showing the total confirmed cases for each region (top 10)"):
+    if st.checkbox("Q11: Show a line graph showing the total confirmed cases for each region (top 8)"):
            region_confirmed = data.groupby("Region")["Confirmed"].sum().reset_index()
-           region_confirmed = region_confirmed.sort_values("Confirmed", ascending=False).head(10)
+           region_confirmed = region_confirmed.sort_values("Confirmed", ascending=False).head(8)
            fig, ax = plt.subplots()
            sns.lineplot(x="Region", y="Confirmed", data=region_confirmed, ax=ax)
-           ax.set_title("Total Confirmed Cases by Region (Top 10)")
+           ax.set_title("Total Confirmed Cases by Region (Top 8)")
            ax.set_xlabel("Region")
            ax.set_ylabel("Confirmed Cases")
            st.pyplot(fig)
